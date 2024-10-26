@@ -1,6 +1,6 @@
 {
   "name": "@garlicbed/react-native-slide360",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "A React Native component for interactive 360-degree product views",
   "source": "./src/index.tsx",
   "main": "./lib/commonjs/index.js",
