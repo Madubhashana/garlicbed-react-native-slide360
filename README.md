@@ -10,15 +10,13 @@ npm install @garlicbed/react-native-slide360
 
 ## Usage
 
-
 ```js
-import { ReactNativeSlide360View } from "@garlicbed/react-native-slide360";
+import { Slide360View } from '@garlicbed/react-native-slide360';
 
 // ...
 
-<ReactNativeSlide360View color="tomato" />
+<Slide360View images={[IMAGES]} />;
 ```
-
 
 ## Contributing
 

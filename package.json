@@ -5,6 +5,7 @@
   "source": "./src/index.tsx",
   "main": "./lib/commonjs/index.js",
   "module": "./lib/module/index.js",
+  "types": "./lib/typescript/commonjs/src/index.d.ts",
   "exports": {
     ".": {
       "import": {
@@ -18,23 +19,7 @@
     }
   },
   "files": [
-    "src",
-    "lib",
-    "android",
-    "ios",
-    "cpp",
-    "*.podspec",
-    "react-native.config.json",
-    "!ios/build",
-    "!android/build",
-    "!android/gradle",
-    "!android/gradlew",
-    "!android/gradlew.bat",
-    "!android/local.properties",
-    "!**/__tests__",
-    "!**/__fixtures__",
-    "!**/__mocks__",
-    "!**/.*"
+    "lib"
   ],
   "scripts": {
     "example": "yarn workspace @garlicbed/react-native-slide360-example",
@@ -48,7 +33,26 @@
   "keywords": [
     "react-native",
     "ios",
-    "android"
+    "android",
+    "expo",
+    "360-view",
+    "product-viewer",
+    "slide-360",
+    "product-carousel",
+    "image-carousel",
+    "swipe-view",
+    "product-rotation",
+    "interactive-viewer",
+    "react-native-360-view",
+    "product-image-viewer",
+    "expo-compatible",
+    "360-product-image",
+    "360-product-viewer",
+    "product-360-rotation",
+    "swipe-360",
+    "360-image-view",
+    "360-view",
+    "360-product-view"
   ],
   "repository": {
     "type": "git",
@@ -69,6 +73,7 @@
     "@react-native/eslint-config": "^0.73.1",
     "@release-it/conventional-changelog": "^5.0.0",
     "@types/jest": "^29.5.5",
+    "@types/lodash.throttle": "^4.1.9",
     "@types/react": "^18.2.44",
     "commitlint": "^17.0.2",
     "del-cli": "^5.1.0",
@@ -80,6 +85,7 @@
     "react": "18.3.1",
     "react-native": "0.76.0",
     "react-native-builder-bob": "^0.30.2",
+    "react-native-gesture-handler": "^2.20.2",
     "release-it": "^15.0.0",
     "turbo": "^1.10.7",
     "typescript": "^5.2.2"
@@ -89,7 +95,8 @@
   },
   "peerDependencies": {
     "react": "*",
-    "react-native": "*"
+    "react-native": "*",
+    "react-native-gesture-handler": "*"
   },
   "workspaces": [
     "example"
@@ -184,5 +191,8 @@
     "type": "view-legacy",
     "languages": "kotlin-objc",
     "version": "0.42.1"
+  },
+  "dependencies": {
+    "lodash.throttle": "^4.1.1"
   }
 }
