@@ -14,9 +14,20 @@ npm install @garlicbed/react-native-slide360
 import { Slide360View } from '@garlicbed/react-native-slide360';
 
 // ...
+import type { ImageSourcePropType } from 'react-native';
 
-<Slide360View images={[IMAGES]} />;
+
+const Images: ImageSourcePropType[] = [...image sources] ;
+
+return (
+  <Slide360View images={Images} />
+)
+
 ```
+
+## Demo
+
+![Demo of @garlicbed/react-native-slide360](./res/sample.gif)
 
 ## Contributing
 
