@@ -2,13 +2,13 @@ import { useState } from 'react';
 import {
   ActivityIndicator,
   Image,
+  Pressable,
   StyleSheet,
-  Text,
   View,
   type ImageSourcePropType,
   type ImageStyle,
+  Text,
 } from 'react-native';
-import { Pressable } from 'react-native-gesture-handler';
 import type { ImageSlideStyleType, LoadedImageType } from './types';
 
 type ImagePlaceholderPropsType = {
@@ -17,7 +17,14 @@ type ImagePlaceholderPropsType = {
   onPressImage?: (image: LoadedImageType) => void;
   disabled?: boolean;
   imageStyle?: ImageSlideStyleType;
+  fallbackComponent?: React.ReactNode;
 };
+
+const FallbackComponent = () => (
+  <View style={styles.failedToLoad}>
+    <Text>Failed to load the image</Text>
+  </View>
+);
 
 const ImagePlaceholder = ({
   source,
@@ -25,12 +32,19 @@ const ImagePlaceholder = ({
   onPressImage,
   disabled,
   imageStyle = {},
+  fallbackComponent = <FallbackComponent />,
 }: ImagePlaceholderPropsType) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isFailed, setIsFailed] = useState<boolean>(false);
 
   const onLoadEnd = () => setIsLoading(false);
-  const onError = () => setIsFailed(true);
+
+  const onError = () => {
+    // Giving a time to breath
+    setTimeout(() => {
+      setIsFailed(true);
+    }, 500);
+  };
 
   if (!source) {
     return (
@@ -58,16 +72,15 @@ const ImagePlaceholder = ({
         style={styles.loader}
       />
       {isFailed ? (
-        <View style={styles.failedToLoad}>
-          <Text>Failed to load the image</Text>
-        </View>
-      ) : null}
-      <Image
-        source={source}
-        style={imageSlideStyles}
-        onError={onError}
-        onLoadEnd={onLoadEnd}
-      />
+        fallbackComponent
+      ) : (
+        <Image
+          source={source}
+          style={imageSlideStyles}
+          onError={onError}
+          onLoadEnd={onLoadEnd}
+        />
+      )}
     </Pressable>
   );
 };

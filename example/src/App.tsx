@@ -1,5 +1,5 @@
 import { StyleSheet, View } from 'react-native';
-import { Slide360View } from '@garlicbed/react-native-slide360';
+import Slide360View from '@garlicbed/react-native-slide360';
 
 import Chair0 from '../res/0.png';
 import Chair1 from '../res/1.png';

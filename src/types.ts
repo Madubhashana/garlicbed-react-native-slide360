@@ -1,3 +1,4 @@
+import type React from 'react';
 import type { ImageSourcePropType, ViewStyle, ImageStyle } from 'react-native';
 
 export interface ImageSlideStyleType
@@ -19,4 +20,7 @@ export interface Slide360PropsType {
   height?: number;
   onPressSlide?: (slide: SlideType) => void;
   containerStyle?: ViewStyle;
+  fallbackComponent?: React.ReactNode;
+  children?: React.ReactNode;
+  disabled?: boolean;
 }
